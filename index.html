@@ -49,9 +49,30 @@
       ctx.fillStyle = heroColor
       ctx.fillRect(heroX, heroY, heroS, heroS)
 
+      const heroTL = { x: heroX         , y: heroY         }
+      const heroTR = { x: heroX + heroS , y: heroY         }
+      const heroBL = { x: heroX         , y: heroY + heroS }
+      const heroBR = { x: heroX + heroS , y: heroY + heroS }
+
+      const enemyTL = { x: enemyX          , y: enemyY          }
+      const enemyTR = { x: enemyX + enemyS , y: enemyY          }
+      const enemyBL = { x: enemyX          , y: enemyY + enemyS }
+      const enemyBR = { x: enemyX + enemyS , y: enemyY + enemyS }
+      
+      if (
+        ((heroTL.x > enemyTL.x && heroTL.x < enemyTR.x) && (heroTL.y > enemyTL.y && heroTL.y < enemyBL.y)) ||
+        ((heroTR.x > enemyTL.x && heroTR.x < enemyTR.x) && (heroTR.y > enemyTL.y && heroTR.y < enemyBL.y)) ||
+        ((heroBL.x > enemyTL.x && heroBL.x < enemyTR.x) && (heroBL.y > enemyTL.y && heroBL.y < enemyBL.y)) ||
+        ((heroBR.x > enemyTL.x && heroBR.x < enemyTR.x) && (heroBR.y > enemyTL.y && heroBR.y < enemyBL.y)) 
+      ) {
+        ctx.fillStyle = "red"
+      } else {
+        ctx.fillStyle = enemyColor
+      }
+ 
       // Reder Bozin Fazueli Enemy
-      ctx.fillStyle = enemyColor
       ctx.fillRect(enemyX, enemyY, enemyS, enemyS)
+      
     }
 
     function main() {

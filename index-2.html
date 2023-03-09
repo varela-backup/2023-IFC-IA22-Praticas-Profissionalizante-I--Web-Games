@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Page Title</title>
+  <style>
+    body {
+      background-color: black;
+    }
+
+    canvas {
+      background-color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    const cnv = document.createElement("canvas")
+    const ctx = cnv.getContext("2d")
+
+    document.body.append(cnv)
+
+    class Person {
+      constructor(x, y, s, color) {
+        this.x = x
+        this.y = y
+        this.s = s
+        this.color = color
+      }
+
+      render() {
+        ctx.fillStyle = this.color
+        ctx.fillRect(this.x, this.y, this.s, this.s)
+      }
+    }
+
+    // Kreitin Hero
+    const hero = new Person(10, 10, 20, "green")
+
+    // Bozin Fazueli Enemy
+    const enemys = [
+      new Person(10, 10, 20, "red"),
+      new Person(100, 15, 20, "red"),
+      new Person(140, 15, 20, "pink"),
+      new Person(34, 100, 20, "red"),
+      new Person(70, 13, 20, "red")]
+
+    cnv.addEventListener("mousemove", ev => {
+      hero.x = ev.offsetX
+      hero.y = ev.offsetY
+    })
+
+    function input() {
+      // Usar para input de Joypad
+    }
+
+    function render() {
+      ctx.clearRect(0, 0, cnv.width, cnv.height)
+
+      hero.render()
+      enemys.forEach(enemy => enemy.render())
+    }
+
+    function main() {
+      input()
+      render()
+      requestAnimationFrame(main)
+    }
+
+    requestAnimationFrame(main)
+  </script>
+</body>
+
+</html>
