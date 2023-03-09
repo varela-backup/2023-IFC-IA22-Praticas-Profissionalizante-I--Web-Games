@@ -33,6 +33,10 @@
         ctx.fillStyle = this.color
         ctx.fillRect(this.x, this.y, this.s, this.s)
       }
+
+      colide() {
+        // 
+      }
     }
 
     // Kreitin Hero
@@ -42,7 +46,7 @@
     const enemys = [
       new Person(10, 10, 20, "red"),
       new Person(100, 15, 20, "red"),
-      new Person(140, 15, 20, "pink"),
+      new Person(140, 15, 20, "pink "),
       new Person(34, 100, 20, "red"),
       new Person(70, 13, 20, "red")]
 
@@ -60,6 +64,8 @@
 
       hero.render()
       enemys.forEach(enemy => enemy.render())
+
+      hero.colide(enemys[0])
     }
 
     function main() {
