@@ -1,111 +1,13 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <title>Page Title</title>
-  <style>
-    body {
-      background-color: black;
-    }
-
-    canvas {
-      background-color: white;
-    }
-  </style>
-</head>
-
-<body>
-  <script>
-    const cnv = document.createElement("canvas")
-    const ctx = cnv.getContext("2d")
-
-    document.body.append(cnv)
-
-    class Person {
-      constructor(x, y, s, color) {
-        this.x = x
-        this.y = y
-        this.w = s
-        this.h = s
-        this.color = color
-      }
-
-      render() {
-        ctx.fillStyle = this.color
-        ctx.fillRect(this.x, this.y, this.w, this.h)
-      }
-
-      getPoints() {
-        return {
-          top: {
-            left: { x: this.x, y: this.y },
-            right: { x: this.x + this.w, y: this.y },
-          },
-          bottom: {
-            left: { x: this.x, y: this.y + this.h },
-            right: { x: this.x + this.w, y: this.y + this.h },
-          }
-        }
-      }
-
-      colide(other) {
-        const selfPonts = this.getPoints()
-        const otherPoints = other.getPoints()
-        if (
-          (
-            selfPonts.top.left.x >= otherPoints.top.left.x && selfPonts.top.left.x <= otherPoints.top.right.x &&
-            selfPonts.top.left.y >= otherPoints.top.left.y && selfPonts.top.left.y <= otherPoints.bottom.left.y
-          ) || (
-            selfPonts.top.right.x >= otherPoints.top.left.x && selfPonts.top.right.x <= otherPoints.top.right.x &&
-            selfPonts.top.right.y >= otherPoints.top.left.y && selfPonts.top.right.y <= otherPoints.bottom.left.y
-          ) || (
-            selfPonts.bottom.left.x >= otherPoints.top.left.x && selfPonts.bottom.left.x <= otherPoints.top.right.x &&
-            selfPonts.bottom.left.y >= otherPoints.top.left.y && selfPonts.bottom.left.y <= otherPoints.bottom.left.y
-          ) || (
-            selfPonts.bottom.right.x >= otherPoints.top.left.x && selfPonts.bottom.right.x <= otherPoints.top.right.x &&
-            selfPonts.bottom.right.y >= otherPoints.top.left.y && selfPonts.bottom.right.y <= otherPoints.bottom.left.y
-          ) 
-        ) {
-          this.color = "green"
-        } else {
-          this.color = "pink"
-        }
-      }
-    }
-
-    // Kreitin Hero
-    const hero = new Person(10, 10, 20, "green")
-
-    // Bozin Fazueli Enemy
-    const enemys = [
-      new Person(100, 100, 20, "red")]
-
-    cnv.addEventListener("mousemove", ev => {
-      hero.x = ev.offsetX
-      hero.y = ev.offsetY
-    })
-
-    function input() {
-      // Usar para input de Joypad
-    }
-
-    function render() {
-      ctx.clearRect(0, 0, cnv.width, cnv.height)
-
-      hero.render()
-      enemys.forEach(enemy => enemy.render())
-
-      hero.colide(enemys[0])
-    }
-
-    function main() {
-      input()
-      render()
-      requestAnimationFrame(main)
-    }
-
-    requestAnimationFrame(main)
+  <link rel='stylesheet' type='text/css' href='assets/main.css'>
+  <script type="module">
+    import "./assets/main.js"
   </script>
+</head>
+<body>
+  <!--  -->
 </body>
-
 </html>
