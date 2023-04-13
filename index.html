@@ -1,88 +1,82 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <title>Page Title</title>
-  <style>
-    body {
-      background-color: black;
-    }
-
-    canvas {
-      background-color: white;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Key-Kreitim</title>
+  <link rel="stylesheet" href="main.css">
 </head>
-
 <body>
-  <script>
-    const cnv = document.createElement("canvas")
-    const ctx = cnv.getContext("2d")
-
-    document.body.append(cnv)
-
-    // Kreitin Hero
-    let heroX = 0
-    let heroY = 0
-    let heroS = 20
-    let heroColor = "blue"
-
-    // Bozin Fazueli Enemy
-    let enemyX = 40
-    let enemyY = 40
-    let enemyS = 20
-    let enemyColor = "green"
-
-    cnv.addEventListener("mousemove", ev => {
-      heroX = ev.offsetX
-      heroY = ev.offsetY
-    })
-
-    function input() { 
-      // Usar para input de Joypad
-    }
-
-    function render() {
-      ctx.clearRect(0, 0, cnv.width, cnv.height)
-
-      // Reder Kreitin Hero
-      ctx.fillStyle = heroColor
-      ctx.fillRect(heroX, heroY, heroS, heroS)
-
-      const heroTL = { x: heroX         , y: heroY         }
-      const heroTR = { x: heroX + heroS , y: heroY         }
-      const heroBL = { x: heroX         , y: heroY + heroS }
-      const heroBR = { x: heroX + heroS , y: heroY + heroS }
-
-      const enemyTL = { x: enemyX          , y: enemyY          }
-      const enemyTR = { x: enemyX + enemyS , y: enemyY          }
-      const enemyBL = { x: enemyX          , y: enemyY + enemyS }
-      const enemyBR = { x: enemyX + enemyS , y: enemyY + enemyS }
-      
-      if (
-        ((heroTL.x > enemyTL.x && heroTL.x < enemyTR.x) && (heroTL.y > enemyTL.y && heroTL.y < enemyBL.y)) ||
-        ((heroTR.x > enemyTL.x && heroTR.x < enemyTR.x) && (heroTR.y > enemyTL.y && heroTR.y < enemyBL.y)) ||
-        ((heroBL.x > enemyTL.x && heroBL.x < enemyTR.x) && (heroBL.y > enemyTL.y && heroBL.y < enemyBL.y)) ||
-        ((heroBR.x > enemyTL.x && heroBR.x < enemyTR.x) && (heroBR.y > enemyTL.y && heroBR.y < enemyBL.y)) 
-      ) {
-        ctx.fillStyle = "red"
-      } else {
-        ctx.fillStyle = enemyColor
-      }
- 
-      // Reder Bozin Fazueli Enemy
-      ctx.fillRect(enemyX, enemyY, enemyS, enemyS)
-      
-    }
-
-    function main() {
-      input()
-      render()
-      requestAnimationFrame(main)
-    }
-
-    requestAnimationFrame(main)
-  </script>
+  <main>
+    <div class="score">
+      15
+    </div>
+    <p>
+      <span class="word">
+        <span class="letter correct">l</span>
+        <span class="letter correct">o</span>
+        <span class="letter correct">r</span>
+        <span class="letter wrong">e</span>
+        <span class="letter correct">m</span>
+      </span>
+      <span class="space wrong"> </span>
+      <span class="word">
+        <span class="letter correct">l</span>
+        <span class="letter correct">o</span>
+        <span class="letter correct">r</span>
+        <span class="letter wrong">e</span>
+        <span class="letter correct">m</span>
+      </span>
+      <span class="space wrong"> </span>
+      <span class="word">
+        <span class="letter correct">l</span>
+        <span class="letter correct">o</span>
+        <span class="letter correct">r</span>
+        <span class="letter wrong">e</span>
+        <span class="letter correct">m</span>
+      </span>
+      <span class="space wrong"> </span>
+      <span class="word">
+        <span class="letter correct">l</span>
+        <span class="letter correct">o</span>
+        <span class="letter correct">r</span>
+        <span class="letter wrong">e</span>
+        <span class="letter correct">m</span>
+      </span>
+      <span class="space wrong"> </span>
+      <span class="word">
+        <span class="letter correct">l</span>
+        <span class="letter correct">o</span>
+        <span class="letter correct">r</span>
+        <span class="letter wrong">e</span>
+        <span class="letter correct">m</span>
+      </span>
+      <span class="space wrong"> </span>
+      <span class="word">
+        <span class="letter correct">l</span>
+        <span class="letter correct">o</span>
+        <span class="letter correct">r</span>
+        <span class="letter wrong">e</span>
+        <span class="letter correct">m</span>
+      </span>
+      <span class="space wrong"> </span>
+      <span class="word">
+        <span class="letter correct">l</span>
+        <span class="letter correct">o</span>
+        <span class="letter correct">r</span>
+        <span class="letter wrong">e</span>
+        <span class="letter correct">m</span>
+      </span>
+      <span class="space wrong"> </span>
+      <span class="word">
+        <span class="letter">i</span>
+        <span class="letter">p</span>
+        <span class="letter">s</span>
+        <span class="letter">u</span>
+        <span class="letter">m</span>
+      </span>
+    </p>
+  </main>
 </body>
-
 </html>

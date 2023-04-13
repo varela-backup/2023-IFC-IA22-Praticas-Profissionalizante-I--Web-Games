@@ -1,0 +1,56 @@
+:root {
+  --theme-font-color: black;
+  --theme-font-color-wrong: red;
+  --theme-font-color-correct: green;
+  --theme-cursor: purple;
+}
+
+main {
+  color: var(--theme-font-color);
+  border: 2px solid lightcoral;
+  max-width: 600px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+main div.score {
+  border: 2px solid lightcoral;
+  padding: 1rem;
+}
+
+main p {
+  border: 2px solid lightcoral;
+  margin: 0;
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+main p .word {
+  display: inline-flex;
+  background-color: aqua;
+  padding: 2px;
+}
+
+main p .word .letter {
+  display: inline;
+  background-color: purple;
+}
+
+main p .word .letter.correct {
+  color: var(--theme-font-color-correct);
+}
+
+main p .word .letter.wrong {
+  color: var(--theme-font-color-wrong);
+}
+
+main p .space {
+  display: inline-block;
+  width: .25em;
+}
+
+main p .space.wrong {
+  border-bottom: 1px solid var(--theme-font-color-wrong);
+}
