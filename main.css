@@ -1,26 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;1,300&display=swap');
+
 :root {
+  --theme-body-background: #323437;
   --theme-font-color: black;
-  --theme-font-color-wrong: red;
-  --theme-font-color-correct: green;
+  --theme-font-color-score:#e2b714;
+  --theme-font-color-wrong: #ca4754;
+  --theme-font-color-correct: #d1d0c5;
   --theme-cursor: purple;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  background: var(--theme-body-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(3rem, 2vw, 1rem) ;
 }
 
 main {
   color: var(--theme-font-color);
-  border: 2px solid lightcoral;
-  max-width: 600px;
-  margin-inline: auto;
+  max-width: 80vw;
   display: flex;
   flex-direction: column;
 }
 
 main div.score {
-  border: 2px solid lightcoral;
+  color: var(--theme-font-color-score);
   padding: 1rem;
 }
 
 main p {
-  border: 2px solid lightcoral;
   margin: 0;
   padding: 1rem;
   display: flex;
@@ -29,13 +45,10 @@ main p {
 
 main p .word {
   display: inline-flex;
-  background-color: aqua;
-  padding: 2px;
 }
 
 main p .word .letter {
   display: inline;
-  background-color: purple;
 }
 
 main p .word .letter.correct {
