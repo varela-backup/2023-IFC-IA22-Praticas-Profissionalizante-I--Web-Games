@@ -1,11 +1,12 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;1,300&display=swap');
 
 :root {
   --theme-body-background: #323437;
-  --theme-font-color: black;
+  --theme-font-color: white;
   --theme-font-color-score:#e2b714;
   --theme-font-color-wrong: #ca4754;
-  --theme-font-color-correct: #d1d0c5;
+  --theme-font-color-correct: green;
   --theme-cursor: purple;
 }
 
@@ -45,10 +46,12 @@ main p {
 
 main p .word {
   display: inline-flex;
+  border: 4px solid lightgreen;
 }
 
 main p .word .letter {
   display: inline;
+  color: var(--theme-font-color);
 }
 
 main p .word .letter.correct {
