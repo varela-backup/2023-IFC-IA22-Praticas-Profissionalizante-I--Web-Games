@@ -10,9 +10,7 @@
 const score = document.querySelector("main div.score")
 const corretTypedLetters = document.createElement("span")
 let couterCorrectTypedWords = 0
-
 score.append(corretTypedLetters)
-
 window.addEventListener("correctletter", ev => {
   couterCorrectTypedWords++
   corretTypedLetters.innerText = couterCorrectTypedWords + " letras corretas"

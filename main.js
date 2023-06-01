@@ -89,8 +89,8 @@ function gameRules(paragraph) {
     if (endGame)
       return
 
-    // ignore all special keys, except space
-    if (!ev.code.includes("Key") && ev.code != "Space")
+    // ignore all special keys
+    if (ev.key.length >= 2)
       return
 
     typedWord += ev.key
