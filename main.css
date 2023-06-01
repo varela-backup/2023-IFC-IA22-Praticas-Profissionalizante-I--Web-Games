@@ -1,72 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;1,300&display=swap');
-
-:root {
-  --theme-body-background: #323437;
-  --theme-font-color: white;
-  --theme-font-color-score:#e2b714;
-  --theme-font-color-wrong: #ca4754;
-  --theme-font-color-correct: green;
-  --theme-cursor: purple;
+* {
+  box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
-  margin: 0;
-}
+/* --- */
 
 body {
   font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  background: var(--theme-body-background);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: clamp(3rem, 2vw, 1rem) ;
-}
-
-main {
-  color: var(--theme-font-color);
-  max-width: 80vw;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  background-color: #22272e;
+  font-size: 25px;
   display: flex;
   flex-direction: column;
 }
 
-main div.score {
-  color: var(--theme-font-color-score);
-  padding: 1rem;
+header {
+  height: 5rem;
+  background: rgba(255, 255, 255, .1);
 }
 
-main p {
-  margin: 0;
-  padding: 1rem;
+main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main .score {
+  color: #e86d76;
+}
+
+main .text p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+}
+
+main div.text p {
   display: flex;
   flex-wrap: wrap;
 }
 
-main p .word {
-  display: inline-flex;
-  border: 4px solid lightgreen;
-}
-
-main p .word .letter {
-  display: inline;
-  color: var(--theme-font-color);
-}
-
-main p .word .letter.correct {
-  color: var(--theme-font-color-correct);
-}
-
-main p .word .letter.wrong {
-  color: var(--theme-font-color-wrong);
-}
-
-main p .space {
-  display: inline-block;
+main div.text p>span {
   width: .25em;
 }
 
-main p .space.wrong {
-  border-bottom: 1px solid var(--theme-font-color-wrong);
+/* CURSOR */
+
+main div.text p>*>.current {
+  background-color: #4eaeed;
+  color: black;
+}
+
+/* WORD */
+
+main div.text p>.wrong {
+  border-bottom: 2px solid #924f57;
+}
+
+main div.text p>.correct {
+  border-bottom: 2px solid lightgreen;
+}
+
+/* LETTER */
+
+main div.text p>*>* {
+  color: #aab2bf;
+}
+
+main div.text p>*>.wrong {
+  background-color: #924f57;
+  color: black;
+}
+
+main div.text p>*>.correct {
+  background-color: green;
+  color: black;
+}
+
+footer {
+  height: 5rem;
+  background: rgba(255, 255, 255, .1);
 }
