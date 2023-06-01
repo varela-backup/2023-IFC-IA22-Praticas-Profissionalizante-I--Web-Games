@@ -15,5 +15,5 @@ score.append(corretTypedLetters)
 
 window.addEventListener("correctletter", ev => {
   couterCorrectTypedWords++
-  corretTypedLetters.innerText = couterCorrectTypedWords
+  corretTypedLetters.innerText = couterCorrectTypedWords + " letras corretas"
 })
