@@ -81,13 +81,26 @@ function gameRules(paragraph) {
   currentWord.classList.add("current")
   currentLetter.classList.add("current")
   window.addEventListener("keydown", ev => {
+    if (endGame)
+      return
+
     if (!gameStarted) {
       gameStarted = true
       window.dispatchEvent(new CustomEvent("gamestarted"))
     }
 
-    if (endGame)
-      return
+    if (ev.key == "Backspace") {
+      const back = currentLetter.previousElementSibling
+
+      if (!back)
+        return
+        
+      currentLetter.classList.remove("current")
+      back.classList.add("current")
+      back.classList.remove("worong")
+      back.classList.remove("correct")
+      currentLetter = back
+    }
 
     // ignore all special keys
     if (ev.key.length >= 2)
