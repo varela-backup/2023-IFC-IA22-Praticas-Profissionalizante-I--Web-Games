@@ -12,6 +12,6 @@ const corretTypedLetters = document.createElement("span")
 let couterCorrectTypedWords = 0
 score.append(corretTypedLetters)
 window.addEventListener("correctletter", ev => {
-  couterCorrectTypedWords++
-  corretTypedLetters.innerText = couterCorrectTypedWords + " letras corretas"
+  counterCorrectTypedWords++
+  corretTypedLetters.innerText = counterCorrectTypedWords + " letras corretas"
 })
