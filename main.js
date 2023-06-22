@@ -80,8 +80,12 @@ function gameRules(paragraph) {
   let typedWord = ""
   currentWord.classList.add("current")
   currentLetter.classList.add("current")
-  
+
   window.addEventListener("keydown", ev => {
+    ev.preventDefault()
+    ev.stopPropagation()
+    ev.stopImmediatePropagation()
+    
     if (endGame)
       return
 
